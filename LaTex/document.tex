@@ -22,37 +22,9 @@
 \rhead{UAH}
 \cfoot{\thepage}
 
-% --- Definición del lenguaje JavaScript ---
-\lstdefinelanguage{JavaScript}{
-	keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, const, let},
-	keywordstyle=\color{blue}\bfseries,
-	ndkeywords={class, export, boolean, throw, implements, import, this},
-	ndkeywordstyle=\color{darkgray}\bfseries,
-	identifierstyle=\color{black},
-	sensitive=false,
-	comment=[l]{//},
-	morecomment=[s]{/*}{*/},
-	commentstyle=\color{green!60!black}\ttfamily,
-	stringstyle=\color{red}\ttfamily,
-	morestring=[b]',
-	morestring=[b]"
-}
 
-% --- Definición del lenguaje Rust ---
-\lstdefinelanguage{Rust}{
-	keywords={fn, let, mut, if, else, while, for, in, return, break, continue, match, struct, enum, type, impl, trait, pub, use, mod, crate, const, static, match},
-	keywordstyle=\color{blue}\bfseries,
-	ndkeywords={i32, String, Vec, Option, Result, Box},
-	ndkeywordstyle=\color{purple}\bfseries,
-	identifierstyle=\color{black},
-	sensitive=true,
-	comment=[l]{//},
-	morecomment=[s]{/*}{*/},
-	commentstyle=\color{green!60!black}\ttfamily,
-	stringstyle=\color{red}\ttfamily,
-	morestring=[b]',
-	morestring=[b]"
-}
+
+
 
 \lstset{
 	frame=single,
@@ -105,7 +77,6 @@
 	
 	\newpage
 	\tableofcontents
-	\newpage
 	
 	\section{Introducción}
 	
@@ -135,76 +106,12 @@
 	\subsection{Código Fuente: JavaScript Original}
 	El archivo de entrada (\texttt{codex.js}) representa un entorno no tipado que nuestro sistema leerá y convertirá:
 	
-	\begin{lstlisting}[language=JavaScript, caption={Archivo JS de entrada}]
-function sum_values(v_1, v_2) {
-	return v_1 + v_2;
-}
 
-const a = 10;
-const b = 20;
-
-const result = sum_values(a, b);
-console.log(result);
-	\end{lstlisting}
-	
-	\newpage
 	
 	\subsection{Implementación del Transpilador en Rust}
-	El código principal en Rust se estructuró para manejar los argumentos de la línea de comandos (CLI) y procesar la lectura en un bloque seguro, gestionando la posible falla de I/O mediante el tipado \texttt{Result} de Rust.
+	El código principal en Rust se estructuró para manejar los argumentos de la línea de comandos (CLI) y procesar la lectura en un bloque seguro, gestionando la posible falla de I/O mediante el tipado 
 	
-	\begin{lstlisting}[language=Rust, caption={Transpilador principal en Rust}]
-use std::{env, fs, process};
 
-fn phraser(codex: String) {
-	println!("fn main() {{");
-			for line in codex.lines() {
-				let rust_line = converter(line);
-				if rust_line.trim().is_empty() {
-					println!();
-				} else {
-					println!("    {}", rust_line);
-				}
-			}
-			println!("}}");
-}
-
-fn converter(line: &str) -> String {
-	let mut out = line.to_string();
-	if out.contains("function") {
-		out = out.replace("function", "fn")
-		.replace(",", ": i32,")
-		.replace(") {", ": i32) -> i32 {");
-			}
-			if out.contains("const") {
-				out = out.replace("const", "let").replace(" = ", ": i32 = ");
-			}
-			if out.contains("console.log(") {
-				out = out.replace("console.log(", "println!(\"{}\", ");
-			}
-			out
-		}
-		
-		fn main() {
-			let args: Vec<String> = env::args().collect();
-			let filename: String;
-			
-			if args.len() < 2 {
-				filename = String::from("codex.js");
-			} else {
-				filename = args[1].clone();
-			}
-			
-			let js_code = match fs::read_to_string(&filename) {
-				Ok(content) => content,
-				Err(e) => {
-					eprintln!("No se pudo leer el archivo '{}': {}", filename, e);
-					process::exit(1);
-				}
-			};
-			
-			phraser(js_code);
-		}
-			\end{lstlisting}
 			
 			\section{Diseño del Algoritmo}
 			
@@ -225,33 +132,14 @@ fn converter(line: &str) -> String {
 
 			
 
-			
-			\newpage
+
 			\section{Resultados y Ejecución}
 			
 			El programa fue compilado y ejecutado utilizando el gestor \texttt{cargo}. En la ejecución, el proceso solicitó el archivo \texttt{codex.js} al S.O., realizó las mutaciones sintácticas y emitió el resultado mediante la salida estándar.
-			
-			\begin{lstlisting}[language=bash, caption={Salida de la terminal al ejecutar el Transpilador}]
-D:\Users\Lithium\Desktop\University\Sistemas operativos\Tarea\RVM>cargo run
-Compiling RVM v0.1.0 
-Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.67s
-Running `target\debug\RVM.exe`
-fn main() {
-	fn sum_values(v_1: i32, v_2: i32) -> i32 {
-		return v_1 + v_2;
-	}
-	
-	let a: i32 = 10;
-	let b: i32 = 20;
-	
-	let result: i32 = sum_values(a, b);
-	println!("{}", result);
-}
-			\end{lstlisting}
+
 			
 			Como se observa, el programa finalizó exitosamente e imprimió en consola el código fuente transpilado y válido para Rust. \textbf{Es vital notar que el código de la suma matemática no se ejecutó en ningún momento durante este proceso}. El programa actuó exclusivamente como un manipulador de texto: leyó un archivo, reemplazó caracteres, y escribió un nuevo flujo de texto en la terminal.
-			
-			\newpage
+
 			\section{Conclusión}
 			
 			El desarrollo de este transpilador básico permitió observar en la práctica conceptos de la arquitectura de Sistemas Operativos, específicamente el manejo de la Entrada/Salida (E/S) y la diferencia entre procesar texto y ejecutar código.

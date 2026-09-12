@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.25.7 (MiKTeX 26.5) (format=lualatex 2026.6.28)  12 SEP 2026 18:55
+This is LuaHBTeX, Version 1.25.7 (MiKTeX 26.5) (format=lualatex 2026.6.28)  12 SEP 2026 18:58
  restricted system commands enabled.
 **document.tex
 (./document.tex
@@ -629,26 +629,26 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = document.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -656,60 +656,60 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 75.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 75.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 75.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 75.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 75.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 75.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 75.
-LaTeX Font Info:    Redeclaring math accent \check on input line 75.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 75.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 75.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 75.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 75.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 47.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 47.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 47.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 47.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 47.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 47.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 47.
+LaTeX Font Info:    Redeclaring math accent \check on input line 47.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 47.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 47.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 47.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 47.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 47.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 75.
+(Font)              `operators' in the math version `normal' on input line 47.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/Calibri(0)/m/n on input line 75.
+(Font)                  OT1/cmr/m/n --> TU/Calibri(0)/m/n on input line 47.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 75.
+(Font)              `operators' in the math version `bold' on input line 47.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/Calibri(0)/m/n on input line 75.
+(Font)                  OT1/cmr/bx/n --> TU/Calibri(0)/m/n on input line 47.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/Calibri(0)/m/n --> TU/Calibri(0)/m/n on input line 7
-5.
+(Font)                  TU/Calibri(0)/m/n --> TU/Calibri(0)/m/n on input line 4
+7.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/Calibri(0)/m/it on input line 75.
+(Font)                  OT1/cmr/m/it --> TU/Calibri(0)/m/it on input line 47.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/Calibri(0)/b/n on input line 75.
+(Font)                  OT1/cmr/bx/n --> TU/Calibri(0)/b/n on input line 47.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 75.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 47.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 75.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 47.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/Calibri(0)/m/n --> TU/Calibri(0)/b/n on input line 7
-5.
+(Font)                  TU/Calibri(0)/m/n --> TU/Calibri(0)/b/n on input line 4
+7.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/Calibri(0)/b/it on input line 75.
+(Font)                  OT1/cmr/bx/it --> TU/Calibri(0)/b/it on input line 47.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 75.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 47.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 75.
-LaTeX Info: Redefining \. on input line 75.
-LaTeX Info: Redefining \% on input line 75.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 47.
+LaTeX Info: Redefining \. on input line 47.
+LaTeX Info: Redefining \% on input line 47.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -766,17 +766,17 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 ("D:/Program Files/MiKTeX/tex/latex/00miktex/epstopdf-sys.cfg"
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 75.
+Package hyperref Info: Link coloring OFF on input line 47.
 
 (./document.out) (./document.out)
 \@outlinefile=\write3
 
 \openout3 = document.out
 \c@lstlisting=\count341
-<logo_uah.png, id=43, 592.2125pt x 127.47626pt>
+<logo_uah.png, id=39, 592.2125pt x 127.47626pt>
 File: logo_uah.png Graphic file (type png)
 <use logo_uah.png>
-Package luatex.def Info: logo_uah.png  used on input line 82.
+Package luatex.def Info: logo_uah.png  used on input line 54.
 (luatex.def)             Requested size: 177.42868pt x 38.1926pt.
  [1
 
@@ -799,25 +799,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = document.toc
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
-[1] [2]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 138.
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 139.
- [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 217--217
+[1]
+Underfull \hbox (badness 10000) in paragraph at lines 124--124
 []\TU/Calibri(0)/b/n/10.95 Fun-ción/Mó-du-
  []
 
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 219.
-[5] ("D:/Program Files/MiKTeX/tex/latex/listings/lstlang1.sty"
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
-("D:/Program Files/MiKTeX/tex/latex/listings/lstlang1.sty"
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-) [6] [7]
-(./document.aux
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 126.
+[2] [3] (./document.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -825,37 +814,26 @@ LaTeX Info: Redefining \% on input line 11.
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
-
-
-Package rerunfilecheck Warning: File `document.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `document.out':
-(rerunfilecheck)             Before: 5F47D75253EF26D1A04344150A05EDD7;1895
-(rerunfilecheck)             After:  0C7EA99217F8E5F499F986F6CE6DD1F6;1727.
+Package rerunfilecheck Info: File `document.out' has not changed.
+(rerunfilecheck)             Checksum: 0C7EA99217F8E5F499F986F6CE6DD1F6;1727.
 )
 
 Here is how much of LuaTeX's memory you used:
- 16657 strings out of 475900
- 381647,1144653 words of node,token memory allocated
+ 16310 strings out of 475900
+ 125036,794899 words of node,token memory allocated
  560 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 15 attribute, 57 glue_spec
 , 8 attribute_list, 1 write, 1 pdf_action nodes
-   avail lists: 2:6307,3:312,4:9336,5:8734,6:103,7:10840,8:86,9:21835,10:28,11:8
-83
- 38882 multiletter control sequences out of 65536+600000
- 58 fonts using 22797583 bytes
- 73i,12n,92p,593b,1035s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-warning  (pdf backend): unreferenced destination with name 'section.6'
+   avail lists: 2:640,3:210,4:34,5:791,6:59,7:5924,8:86,9:349,10:10,11:783
+ 38628 multiletter control sequences out of 65536+600000
+ 54 fonts using 21341175 bytes
+ 73i,11n,92p,593b,416s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/program files/miktex/fonts/opentype/public/lm/lmmonolt10-bold.otf><d:/progra
 m files/miktex/fonts/opentype/public/lm/lmmono10-regular.otf><C:/Windows/Fonts/c
-alibri.ttf><C:/Windows/Fonts/calibrib.ttf><D:/Program Files/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmtt10.pfb>
-Output written on document.pdf (8 pages, 147102 bytes).
+alibri.ttf><C:/Windows/Fonts/calibrib.ttf>
+Output written on document.pdf (4 pages, 114140 bytes).
 
-PDF statistics: 212 PDF objects out of 1000 (max. 8388607)
- 99 named destinations out of 1000 (max. 1048576)
- 81 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 105 PDF objects out of 1000 (max. 8388607)
+ 16 named destinations out of 1000 (max. 1048576)
+ 73 words of extra memory for PDF output out of 10000 (max. 100000000)
 

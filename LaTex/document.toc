@@ -1,10 +1,10 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Objetivos de la Solución}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Descripción del problema}{2}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Contexto Teórico y Relación con el Sistema Operativo}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Código Fuente: JavaScript Original}{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Implementación del Transpilador en Rust}{4}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Diseño del Algoritmo}{5}{section.3}%
-\contentsline {section}{\numberline {4}Resultados y Ejecución}{6}{section.4}%
-\contentsline {section}{\numberline {5}Conclusión}{7}{section.5}%
+\contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Objetivos de la Solución}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Descripción del problema}{1}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Contexto Teórico y Relación con el Sistema Operativo}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Código Fuente: JavaScript Original}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Implementación del Transpilador en Rust}{2}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Diseño del Algoritmo}{2}{section.3}%
+\contentsline {section}{\numberline {4}Resultados y Ejecución}{3}{section.4}%
+\contentsline {section}{\numberline {5}Conclusión}{3}{section.5}%
