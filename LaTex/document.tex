@@ -1,0 +1,263 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage{fontspec}
+\setmainfont{Calibri}
+
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{float}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Proyecto Transpilador}
+\chead{Sistemas Operativos}
+\rhead{UAH}
+\cfoot{\thepage}
+
+% --- Definición del lenguaje JavaScript ---
+\lstdefinelanguage{JavaScript}{
+	keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, const, let},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={class, export, boolean, throw, implements, import, this},
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{green!60!black}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]"
+}
+
+% --- Definición del lenguaje Rust ---
+\lstdefinelanguage{Rust}{
+	keywords={fn, let, mut, if, else, while, for, in, return, break, continue, match, struct, enum, type, impl, trait, pub, use, mod, crate, const, static, match},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={i32, String, Vec, Option, Result, Box},
+	ndkeywordstyle=\color{purple}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=true,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{green!60!black}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]"
+}
+
+\lstset{
+	frame=single,
+	backgroundcolor=\color{gray!10},
+	basicstyle=\ttfamily\small,
+	breaklines=true,
+	keywordstyle=\color{blue},
+	stringstyle=\color{red},
+	commentstyle=\color{green!60!black}
+}
+
+\geometry{
+	left=3cm,
+	right=3cm,
+	top=3cm,
+	bottom=3cm,
+	headheight=14pt
+}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\centering
+		\vspace*{6cm}
+		\vspace{1cm}    
+		
+		\includegraphics[width=0.4\textwidth]{logo_uah.png} 
+		\vspace{0.2cm}
+		
+		\textbf{Facultad de Ingeniería:}\\[0.08cm]
+		{\Large \textbf{Abstracción de Software y Manejo de Archivos: \\ Transpilador Estático de JS a Rust}}\\[2.5cm]
+		
+		\vfill
+		
+		\textbf{Curso:}\\
+		Sistemas Operativos\\[0.5cm]
+		
+		\textbf{Carrera:}\\
+		Ingeniería Civil en Informática\\[0.5cm]
+		
+		\textbf{Integrantes:}\\
+		Vicente Álvarez\\[0.5cm]
+		
+		\textbf{Profesores:}\\
+		Fabio Sáez / Cristian Olivares-Rodríguez
+		
+		\vfill
+		
+	\end{titlepage}
+	
+	\newpage
+	\tableofcontents
+	\newpage
+	
+	\section{Introducción}
+	
+	En este informe se comenta el desarrollo de un programa a nivel de usuario que interactúa con el sistema operativo a través de operaciones de \textbf{Entrada y Salida (E/S)} para manipular archivos y flujos de texto. Específicamente, se construyó un transpilador (traductor de código fuente a código fuente) escrito en Rust, capaz de leer un archivo de JavaScript (\texttt{.js}), procesarlo línea por línea, y emitir el código fuente equivalente en Rust (\texttt{.rs}) a través de la salida estándar (\texttt{stdout}).
+	
+	Es importante destacar que este código solo actua como un traductor, a diferencia de un intérprete o una Máquina Virtual, el programa \textbf{no ejecuta} la lógica del código, sino que se limita a traducir la sintaxis y mostrar el nuevo código, delegando la responsabilidad de compilación y ejecución al usuario leyendo el texto de salida.
+	
+	\subsection{Objetivos de la Solución}
+	\begin{enumerate}
+		\item \textbf{Gestión de Archivos (Abstracción del S.O.):} Utilizar las llamadas al sistema nativas de la librería estándar de Rust (\texttt{std::fs}) para acceder a un archivo almacenado en el disco y cargarlo en la memoria principal para su procesamiento.
+		\item \textbf{Procesamiento de Cadenas y Flujos de Salida:} Analizar el archivo leído para identificar palabras clave de JavaScript (\texttt{function}, \texttt{const}, \texttt{console.log}), reemplazarlas por sus equivalentes en Rust (\texttt{fn}, \texttt{let}, \texttt{println!}) e imprimir el resultado interactuando con la salida estándar del sistema operativo.
+	\end{enumerate}  
+	
+	\subsection{Descripción del problema}
+	El lenguaje JavaScript es notoriamente conocido por ser un lenguaje interpretado lento, ejecutado históricamente en navegadores y hoy en día a través de entornos como NodeJS donde suele ser menos eficiente en consumo de recursos en comparación a lenguajes compilados a nivel de sistema como Rust. El problema abordado es cómo leer un bloque de código básico de JS y transformarlo a Rust utilizando operaciones de E/S, soportando un set limitado de instrucciones: creación de variables, creación de funciones, \texttt{console.log} y sumas.
+	
+	\newpage
+	\section{Contexto Teórico y Relación con el Sistema Operativo}
+	
+	El problema se modela considerando el manejo de memoria, la entrada/salida y la gestión de procesos del sistema operativo.
+	
+	\begin{itemize}
+		\item \textbf{El Proceso:} Cuando se ejecuta el comando \texttt{cargo run}, el sistema operativo asigna memoria RAM y crea un hilo de ejecución principal en modo usuario para el programa transpilador.
+		\item \textbf{Salida (Consola):} Al utilizar \texttt{println!}, el programa vuelve a solicitar al S.O. que tome las cadenas procesadas en la RAM y las escriba en el búfer de salida estándar (\texttt{stdout}), mostrando el código final en la terminal del usuario, cosas de compiladores, donde no nos tenemos que preocupar de las interacciones duras del SO.
+	\end{itemize}
+	
+	\subsection{Código Fuente: JavaScript Original}
+	El archivo de entrada (\texttt{codex.js}) representa un entorno no tipado que nuestro sistema leerá y convertirá:
+	
+	\begin{lstlisting}[language=JavaScript, caption={Archivo JS de entrada}]
+function sum_values(v_1, v_2) {
+	return v_1 + v_2;
+}
+
+const a = 10;
+const b = 20;
+
+const result = sum_values(a, b);
+console.log(result);
+	\end{lstlisting}
+	
+	\newpage
+	
+	\subsection{Implementación del Transpilador en Rust}
+	El código principal en Rust se estructuró para manejar los argumentos de la línea de comandos (CLI) y procesar la lectura en un bloque seguro, gestionando la posible falla de I/O mediante el tipado \texttt{Result} de Rust.
+	
+	\begin{lstlisting}[language=Rust, caption={Transpilador principal en Rust}]
+use std::{env, fs, process};
+
+fn phraser(codex: String) {
+	println!("fn main() {{");
+			for line in codex.lines() {
+				let rust_line = converter(line);
+				if rust_line.trim().is_empty() {
+					println!();
+				} else {
+					println!("    {}", rust_line);
+				}
+			}
+			println!("}}");
+}
+
+fn converter(line: &str) -> String {
+	let mut out = line.to_string();
+	if out.contains("function") {
+		out = out.replace("function", "fn")
+		.replace(",", ": i32,")
+		.replace(") {", ": i32) -> i32 {");
+			}
+			if out.contains("const") {
+				out = out.replace("const", "let").replace(" = ", ": i32 = ");
+			}
+			if out.contains("console.log(") {
+				out = out.replace("console.log(", "println!(\"{}\", ");
+			}
+			out
+		}
+		
+		fn main() {
+			let args: Vec<String> = env::args().collect();
+			let filename: String;
+			
+			if args.len() < 2 {
+				filename = String::from("codex.js");
+			} else {
+				filename = args[1].clone();
+			}
+			
+			let js_code = match fs::read_to_string(&filename) {
+				Ok(content) => content,
+				Err(e) => {
+					eprintln!("No se pudo leer el archivo '{}': {}", filename, e);
+					process::exit(1);
+				}
+			};
+			
+			phraser(js_code);
+		}
+			\end{lstlisting}
+			
+			\section{Diseño del Algoritmo}
+			
+			Para estructurar el funcionamiento lógico de nuestro procesador de texto, dividimos el programa en módulos, aprovechando el paso de variables.
+			
+			\vspace{0.5cm}
+			\noindent
+			\begin{tabular}{p{2.5cm} p{4.5cm} p{7cm}}
+				\toprule
+				\textbf{Función/Módulo} & \textbf{Estructuras Clave} & \textbf{Descripción del Comportamiento} \\
+				\midrule
+				\textbf{\texttt{main}} & \texttt{Vec<String>}, \texttt{fs} & Interfaz directa con el S.O. Obtiene argumentos, busca la ruta del archivo y delega la lectura de E/S. Si el archivo no existe, finaliza el proceso ordenadamente (\texttt{exit(1)}). \\
+				\textbf{\texttt{phraser}} & \texttt{String.lines()} & Actúa como el motor del ciclo principal. Envuelve el resultado final en la función \texttt{main} requerida por el compilador de Rust e itera el archivo hacia \texttt{stdout}. \\
+				\textbf{\texttt{converter}} & \texttt{String.replace()} & Aplica reglas heurísticas de transformación. Muta las referencias de \texttt{function} a \texttt{fn} y tipa dinámicamente las variables a \texttt{i32}. \\
+				\bottomrule
+			\end{tabular}
+			\vspace{0.5cm}
+
+			
+
+			
+			\newpage
+			\section{Resultados y Ejecución}
+			
+			El programa fue compilado y ejecutado utilizando el gestor \texttt{cargo}. En la ejecución, el proceso solicitó el archivo \texttt{codex.js} al S.O., realizó las mutaciones sintácticas y emitió el resultado mediante la salida estándar.
+			
+			\begin{lstlisting}[language=bash, caption={Salida de la terminal al ejecutar el Transpilador}]
+D:\Users\Lithium\Desktop\University\Sistemas operativos\Tarea\RVM>cargo run
+Compiling RVM v0.1.0 
+Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.67s
+Running `target\debug\RVM.exe`
+fn main() {
+	fn sum_values(v_1: i32, v_2: i32) -> i32 {
+		return v_1 + v_2;
+	}
+	
+	let a: i32 = 10;
+	let b: i32 = 20;
+	
+	let result: i32 = sum_values(a, b);
+	println!("{}", result);
+}
+			\end{lstlisting}
+			
+			Como se observa, el programa finalizó exitosamente e imprimió en consola el código fuente transpilado y válido para Rust. \textbf{Es vital notar que el código de la suma matemática no se ejecutó en ningún momento durante este proceso}. El programa actuó exclusivamente como un manipulador de texto: leyó un archivo, reemplazó caracteres, y escribió un nuevo flujo de texto en la terminal.
+			
+			\newpage
+			\section{Conclusión}
+			
+			El desarrollo de este transpilador básico permitió observar en la práctica conceptos de la arquitectura de Sistemas Operativos, específicamente el manejo de la Entrada/Salida (E/S) y la diferencia entre procesar texto y ejecutar código.
+			
+			En primer lugar, se evidenció el rol del S.O. como \textbf{proveedor de abstracciones}. Nuestro programa en Rust no tuvo que calcular en qué bloque físico del disco se encontraba el archivo \texttt{codex.js}; la llamada a la librería estándar (\texttt{std::fs}) encapsuló las peticiones al hardware en modo Kernel, demostrando cómo el sistema operativo oculta la complejidad del hardware al programador.
+			
+			Este documento fue asistido por gemini 3.8 flash, originalmente un .docx y pasado a latex con el siguiente prompt: Convierte este pdf a latex manteniendo la estructura anterior de este archivo: [Documento .tex de un informe de Programación Avanzada: \url{https://drive.google.com/file/d/1fRfKTWYfDFn0IHzG9uExUsDjO4POg3_F/view?usp=drive_link]}
+			
+		\end{document}
